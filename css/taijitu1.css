@@ -1,0 +1,74 @@
+.ccdd{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.box {
+    width: 60px;
+    height: 60px;
+    margin: 7px;
+    position: relative;
+    animation: move 3s infinite linear;
+    top: 0;
+    left: 0;
+}
+.black {
+    width: 60px;
+    height: 60px;
+    background: black;
+    border-radius: 50%;
+}
+.white {
+    width: 30px;
+    height: 60px;
+    background: #fff;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.aa {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 15px;
+}
+.bb {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    top: 30px;
+    left: 15px;
+}
+.cc {
+   width: 12px;
+   height: 12px;
+   background: #fff;
+   position: absolute;
+   top: 0;
+   border-radius: 50%;
+   left: 24px;
+   top: 9px;
+}
+
+.dd {
+   width: 12px;
+   height: 12px;
+   background: #000;
+   position: absolute;
+   top: 0;
+   border-radius: 50%;
+   left: 24px;
+   top: 39px;
+}
+@keyframes move {
+  from{transform: rotate(0deg);}
+  to{transform: rotate(360deg);} 
+}

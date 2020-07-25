@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实现旋转立方体</title>
+    <style type="text/css">
+        * { margin: 0; padding: 0;}
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 4px solid green;
+            margin: 30px auto;
+            perspective: 2400px;
+        }
+        .box ul {
+            width: 200px;
+            height: 200px;
+            border: 1px solid blue;
+            margin: 50px auto;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: move 0.3s infinite linear;
+            transform-origin: center center 100px;
+        }
+        .box ul li {
+            width: 200px;
+            height: 200px;
+            list-style: none;
+            font-size: 50px;
+            color: #fff;
+            text-align: center;
+            line-height: 200px;
+            position: absolute;
+        }
+        .box ul li:nth-of-type(1) { background: red; opacity: 0.5;}
+        .box ul li:nth-of-type(2) { background: blueviolet; opacity: 0.5; transform: translateX(200px) rotateY(-90deg); transform-origin: left;}
+        .box ul li:nth-of-type(3) { background: yellow; opacity: 0.5; transform: translateX(-200px) rotateY(90deg); transform-origin: right;}
+        .box ul li:nth-of-type(4) { background: green; opacity: 0.5; transform: translateY(-200px) rotateX(-90deg); transform-origin: bottom;}
+        .box ul li:nth-of-type(5) { background: purple; opacity: 0.5;transform: translateY(200px) rotatex(90deg); transform-origin: top;}
+        .box ul li:nth-of-type(6) { background: yellowgreen; opacity: 0.5;transform: translateZ(200px)}
+        @keyframes move {
+            from {transform: rotateY(0deg);}
+            to {transform: rotateY(60deg)}
+        }
+    </style >
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</body>
+</html>

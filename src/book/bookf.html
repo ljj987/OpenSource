@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: green;
+        }
+        .perspective {
+            margin-top: 100px;
+            perspective: 800px;
+            transform-style: preserve-3d;
+        }
+        .book {
+            width: 200px;
+            height: 300px;
+            background-image: url(./images/bgi30.jpg);
+            position: relative;
+            margin: 0 auto;
+            transform: rotateX(30deg);
+            transform-style: preserve-3d;   
+        }
+        .book .imgBox{
+            width: 100%;
+            height: 100%;
+            background-image: url(./images/2020-07-22_093424.png);
+            position: relative;
+            transform-origin: left;
+            transition: 1s;
+            animation: roll 6s ease 0.5s 2 alternate;
+        }
+        
+        .book .imgBox1{
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            position: relative;
+            transform-origin: left;
+            transition: 1s;
+            z-index: -1;
+            animation: roll 5s ease 1s 2 alternate;
+        }
+        
+        .book .imgBox2{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-origin: left;
+            transition: 1s;
+            z-index: -1;
+            background: #fff;
+            animation: roll 4s ease 2s 2 alternate;
+            box-shadow: inset 300px 0 50px rgba(252, 249, 249, 0.5), 0 20px 100px rgba(0, 0, 0, .5);
+        }
+        .book .imgBox2::before{
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #fff;
+            transform-origin: bottom;
+            transform: skewX(-45deg);
+            z-index: -1;
+        }
+        .book .imgBox2::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -5px;
+            width: 5px;
+            height: 100%;
+            background: #fff;
+            transform-origin: left;
+            transform: skewY(-45deg);
+            
+        }
+        
+        .card{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: #fff;
+            transform-style: preserve-3d;
+            box-shadow: inset 300px 0 50px rgba(251, 251, 251, 0.5), 0 20px 100px rgba(0, 0, 0, .5);
+            position: relative;
+            transform-origin: left;
+            transition: 1s;
+            z-index: -1;
+            animation: roll 3s ease 3s 2 alternate;
+        }
+        .card::before{
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 0;
+            width: 98%;
+            height: 5px;
+            background: #fff;
+            transform-origin: bottom;
+            transform: skewX(-45deg);
+            animation: cardf 5s linear infinite;
+            z-index: -1;
+        }
+        .card::after{
+            content: '';
+            position: absolute;
+            top: 5px;
+            right: 0;
+            width: 5px;
+            height: 99%;
+            background: #fff;
+            transform-origin: left;
+            transform: skewY(-45deg);
+            animation: cardb 5s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes cardf {
+            0%{
+              height: 5px; 
+            }
+            100%{
+                height: 0;
+            }
+        }
+        @keyframes cardb {
+            0%{
+              width: 5px; 
+            }
+            100%{
+                width: 0;
+            }
+        }
+        @keyframes roll {
+            from {transform: rotateY(0)}
+            to {transform: rotateY(-180deg)}
+        }
+    </style>
+</head>
+<body>
+    <div class="perspective">
+        <div class="book">
+            <div class="imgBox">
+                <div class="imgBox1">
+                    <div class="imgBox2">
+                        <div class="card">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

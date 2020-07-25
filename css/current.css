@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    overflow-y:scroll;
+}
+body {margin:0; padding:0; font:14px"\5B8B\4F53",sans-serif;background:#ffffff;color:#555;} 
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;} 
+table,td,tr,th{font-size:12px;} 
+li{list-style-type:none;}
+a { color:#555; text-decoration:none; }
+a:hover { text-decoration:underline; }
+img { border:none; } 
+ol,ul {list-style:none;} 
+h1,h2,h3{font-size:12px; font-weight:normal;} 
+input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+address, caption, em, strong, var { font-style:normal; font-weight:normal;}

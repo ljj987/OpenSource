@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    margin: 150px;
+}
+ul li {
+    list-style: none;
+    width: 100px;
+    height: 50px;
+    perspective: 500px;
+    float: left;
+    margin-left: 20px;
+}
+.box{
+    position: relative;
+    width: 100px;
+    height: 50px;
+    transform-style: preserve-3d;
+    transition: all .5s;
+}
+.top, .bottom{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+.top{
+    background-color: pink;
+    z-index: 1;
+    transform: translateZ(25px);
+}
+.bottom{
+    background-color: aqua;
+    transform: translateY(25px) rotateX(-90deg);
+}
+.box:hover{
+    transform: rotateX(90deg);
+ 
+}

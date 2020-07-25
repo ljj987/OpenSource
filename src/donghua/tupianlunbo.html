@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片轮播手动切换效果</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .listbox{ 
+            width: 500px;
+            height: 315px;
+            border: 1px solid #333333;
+            margin: 100px;
+            position: relative;
+        }
+        .listbox ul li{
+            width: 30px;
+            height: 30px;
+            backgroun: rgba(0,0,0,0.5);
+            float: left;
+            list-style: none;
+            text-align: center;
+            line-height: 30px;
+            color: #ffffff;
+            margin: 0 2px;
+        }
+        .listbox ul li a{
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .listbox ul{
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+        }
+        .listbox ul li:hover{
+            background: rgba(0,0,0,0.8);
+        }
+        .listbox .listpic{
+            overflow: hidden;
+            width: 500px;
+            height: 315px;
+        }
+    </style>
+</head>
+<body>
+    <div class="listbox">
+        <div class="listpic">
+            <img src="../images/84efc.jpg" id="pic1" alt="">
+            <img src="../images/6a4d1.jpg" id="pic2" alt="">
+            <img src="../images/9d6b6.jpg" id="pic3" alt="">
+            <img src="../images/db8b.jpg" id="pic4" alt="">
+        </div>
+        <ul>
+            <li><a href="#pic1">1</a></li>
+            <li><a href="#pic2">2</a></li>
+            <li><a href="#pic3">3</a></li>
+            <li><a href="#pic4">4</a></li>
+        </ul>
+    </div>
+</body>
+</html>

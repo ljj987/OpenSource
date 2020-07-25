@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立体轮播图</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        body{
+            height: 100vh;
+            background: #000;
+        }
+        .app{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+        .box{
+            width: 270px;
+            height: 270px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(3deg) rotateX(213deg) rotateZ(134deg);
+            animation: Boxrotate 10s ease infinite;
+            display: flex;
+            justify-self: center;
+            align-items: center;
+        }
+        @keyframes Boxrotate {
+            100% {
+                transform: rotateY(3deg) rotateX(213deg) rotateZ(134deg);
+            }
+        }
+        .box:hover .box_content:nth-child(1){
+            transform: translateZ(270px);
+        } 
+        .box:hover .box_content:nth-child(2){
+            transform: rotateY(180deg) translateZ(270px);
+        } 
+        .box:hover .box_content:nth-child(3){
+            transform: rotateY(90deg) translateZ(270px);
+        } 
+        .box:hover .box_content:nth-child(4){
+            transform: rotateY(-90deg) translateZ(270px);
+        } 
+        .box:hover .box_content:nth-child(5){
+            transform: rotateX(90deg) translateZ(270px);
+        } 
+        .box:hover .box_content:nth-child(6){
+            transform: rotateX(-90deg) translateZ(270px);
+        }
+
+        /**/
+        .box_content{
+            transition: all .5s;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(3,1fr);
+            grid-gap: 2px;
+            gap: 2px;
+        }
+        /**/
+        .box_content:nth-child(1){
+            transform: translateZ(135px);
+        } 
+        .box_content:nth-child(2){
+            transform: rotateY(180deg) translateZ(135px);
+        }
+        .box_content:nth-child(3){
+            transform: rotateY(90deg) translateZ(135px);
+        }
+        .box_content:nth-child(4){
+            transform: rotateY(-90deg) translateZ(135px);
+        }
+        .box_content:nth-child(5){
+            transform: rotateX(90deg) translateZ(135px);
+        }
+        .box_content:nth-child(6){
+            transform: rotateX(-90deg) translateZ(135px);
+        }
+        .box_content>dd{
+            position: absolute;
+        }
+        /* 1 */
+        .box_content>dd:nth-child(1){
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 5px;
+            animation: animate1 1.3s ease infinite;
+        }
+        @keyframes animate1 {
+            50%, 100%{
+                left: 100%;
+            }
+        }
+        /* 2 */
+        .box_content>dd:nth-child(2){
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 5px;
+            animation: animate2 1.3s .25s ease infinite;
+        }
+        @keyframes animate2 {
+            50%, 100%{
+                top: 100%;
+            }
+        }
+        /* 3 */
+        .box_content>dd:nth-child(3){
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 5px;
+            animation: animate3 1.3s .5s ease infinite;
+        }
+        @keyframes animate3 {
+            50%, 100%{
+                right: 100%;
+            }
+        }
+        /* 4 */
+        .box_content>dd:nth-child(4){
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 5px;
+            animation: animate4 1.3s .7s ease infinite;
+        }
+        @keyframes animate4 {
+            50%, 100%{
+                bottom: 100%;
+            }
+        }
+        .item{
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 0 1px 1px pink;
+        }
+        .item>a{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .item>a img{
+            width: 100%;
+            height: 100%;
+
+        }
+        /* 定义轮播图过度属性 */
+        .Transition{
+            transition: all .5s;
+        }
+    </style>
+</head>
+<body>
+   <div class="app">
+       <!--  -->
+        <div class="box">
+
+            <div class="box_content" v-for="e in 6"> <!-- 6个大面 -->
+                <dd v-for="e in 4"></dd>
+                <div class="item" v-for="e in 9"> <!-- 9个大面 -->
+                    <a href="#" v-for="e in imgList">
+                        <img :src="e" alt="">
+                    </a>
+                </div>
+            </div>
+            <!--  -->
+
+        </div>
+       <!--  -->
+
+   </div>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+   <script>
+       new Vue({
+           el:'.app',
+           data:{
+               imgList:[]
+           },
+           mounted() {
+               for(let i = 0; i < 9; i++){
+                   this.imgList.push(`./img/${i}.jpg`)
+               }
+           },
+       })
+
+       window.addEventListener('load', function(){
+
+            function    randomColor(){
+                return '#' + ('000000' + (Math.random() * 0x1000000 << 0).toString(16).substr(-6));
+            }
+           const box_content = document.querySelectorAll('.box_content')
+           for(let e of box_content){
+               let dds = e.querySelectorAll('dd')
+               setInterval(()=>{  
+                   for(let i of e.dds){
+                        let x = randomColor()
+                       i.stle.background = `linear-gradient(90deg, transparent, ${x})`
+                   }
+               },200)
+           }
+
+            function lunbo( obj, item, transition){
+
+                const box = document.querySelectorAll( obj )
+
+                for(let e of box){
+
+                    e.index = 0
+                    e.itemr = null
+                    e.iters = e.querySelectorAll( item )
+                    e.widths = e.offsetwidth
+                    e.Seconds = parseInt( 10 + Math.random() * (30 - 10)) * 100 //随机秒数 1~3秒
+
+                    e.SetIntervals = ()=>{
+                        e.timer = setInterval(()=>{
+                            e.index++
+                            if(e.index > e.items.length -1){
+                                e.index = 0
+                            }
+                            e.Move(e.index)
+                        },e.Seconds)
+                    }
+
+                    e.Move = (val)=>{
+                        for(let i of e.items){
+                            i.style.transfrom = `translateX(${ e.widths }px)`
+                            i.classList.remove( Transition )
+                        }
+
+                        //当前要显示的图片
+                        e.items[val].style.transfrom = `translateX(0px)`
+                        e.items[val].classList.add( transition )
+
+                        //前一张显示的图片
+                        e.befores = val - 1
+                        if(e.befores < 0){
+                            e.befores = e.items.length - 1
+                        }
+                        e.items[e.befores].style.transfrom = `translateX(${ -e.widths }px)`
+                        e.items[e.befores].classList.add( transition )
+
+                       //即将显示图片
+                       e.afters = val + 1
+                       if(e.afters > e.items.length - 1)[
+                           e.afters = 0
+                       ] 
+                       e.items[e.afters].style.transfrom = `translateX(${ e.widths }px)`
+                    }
+                    e.Move(0)
+                    e.SetIntervals()
+
+                    e.onmouseover = ()=>{
+                        clearInterval(e.timer)
+                    }
+                    e.onmouseover = ()=>{
+                        e.SetIntervals()
+                    }
+                }
+            }
+            lunbo( '.item', 'a', 'Transition')
+
+       })
+   </script>
+</body>
+</html>

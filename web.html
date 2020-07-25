@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/web.css">
+    <link rel="stylesheet" href="./css/taiji1.css">
+    <title>我的web案例</title>
+    <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+</head>
+<body>
+    <div id="appBox">
+        <div class="box">
+            <div class="left">
+                <div class="right"></div>
+            </div>
+            <div class="left1">
+                <div class="right1"></div>
+            </div>
+        </div>
+        <img class="img" src="./images/tubiao2.png" alt="">
+    </div>
+    <div id="appBar">
+        <ul>
+            <li><a href="./index.html">首页</a></li>
+            <li class="active"><a href="./web.html">web案例</a></li>
+            <li><a href="#">Echarts案例</a></li>
+            <li><a href="#">我的文章</a></li>
+            <li><a href="./geren.html">关于我</a></li>
+            <li id="slide"></li>
+        </ul> 
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('li').on('click', function(){
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active')
+            })
+        })
+    </script>
+    
+</body>
+</html>

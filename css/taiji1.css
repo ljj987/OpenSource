@@ -1,0 +1,49 @@
+* { margin: 0; padding: 0; }
+#appBox .box{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    border-radius: 50px;
+    transition: all 2s;
+    display: flex;
+    align-items: center;
+    margin: 5px 53px;
+    background: linear-gradient(black 50%, white 50%);
+    animation: move 3s infinite linear;
+}
+#appBox .left,#appBox .right{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+#appBox .left{
+    border: 25px solid #fff;
+    background: #000;
+}
+#appBox .right{
+    border: 25px solid #000;
+    background: #fff;
+    margin: -25px 25px;
+}
+#appBox .left1,#appBox .right1{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+#appBox .left1{
+    border: 10px solid #000;
+    background: #fff;
+    margin: 0 -34px;
+}
+#appBox .right1{
+    border: 10px solid #fff;
+    background: #000;
+    margin: -10px 40px;
+}
+#appBox .box:hover{
+    transform: rotate(360deg);
+}
+@keyframes move {
+  from{transform: rotate(0deg);}
+  to{transform: rotate(360deg);} 
+}

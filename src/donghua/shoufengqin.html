@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS实现垂直手风琴效果</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .listbox{
+            width: 500px;
+            margin: 50px auto;
+        }
+        .listbox .list a{
+            display: block;
+            height: 35px;
+            background: linear-gradient(#cecece, #8f8f8f);
+            border-radius: 5px;
+            padding-left: 12px;
+            text-decoration: none;
+            color: #424242;
+            line-height: 35px;
+        }   
+        .listbox .list p{
+            height: 0px;
+            overflow: auto;
+            padding-left: 10px;
+            margin: 5px 0;
+            transition: 0.5s;
+        }
+        .listbox .list {
+            position: relative;
+        }
+        .listbox .list span{
+            width: 0;
+            height: 0;
+            border-left: 5px solid rgba(0, 0, 0, 0);
+            border-right: 5px solid transparent;
+            border-top: 5px solid white;
+            border-bottom: 5px solid transparent;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        .listbox .list:target p{height: 100px;}
+        .listbox .list a:hover, .listbox .list:target a{
+            background: linear-gradient(#6bb2ff, #2288dd);
+            color: #fff;
+        }
+        .listbox .list:target span{
+            border-top: 5px solid transparent;
+            border-left: 5px solid #fff;
+            right: 10px;
+        }
+    </style>    
+</head>
+<body>
+    <div class="listbox">
+        <div class="list" id="listone">
+            <a href="#listone">万界淘宝店</a><span></span>
+            <p>穷学生苏尘，误入万界淘宝店，从此穿越诸天万界送货，得到一个个超级红包！穿越《亮剑》《雪豹》，一把消音AWM，加载吃鸡外挂，杀得小鬼子闻风丧胆，以八尺血躯，护我华夏山河！！穿越《功夫》，购买老乞丐的如来神掌、九阳神功、乾坤大挪移，一跃成为绝世高手！穿越《僵尸先生》，九叔林正英传授一身茅山道术，还带回来一头千年美艳僵尸，天天缠着要我陪她打王者！等等！超级大国太嚣张，敢犯我华夏！把一群饿疯了的进击的巨人空投过去，尽情地肆虐吧！……闲来QQ农场种种菜，抓一头骨鲲当宠物，大乔小乔相伴左右，我真的只是个普通人……顶多，有个系统。</p>
+        </div> 
+        <div class="list" id="listtwo">
+            <a href="#listtwo">我的绝色美女房客</a><span></span>
+            <p>闺怨少妇、清纯校花、妩媚教师、暴躁警花、善良护士，霸道总裁、高冷军官、刁蛮二代、无情杀手、可爱道姑、呆萌萝莉、优雅舞蹈家……这小小的四合院，住着一群绝色美女房客，而陈阳则是她们的房东。好吧，既然如此，保护美女房客这个光（yin）荣（dang）而艰（feng）巨（sao）的任务，只能落在我的头上了。——陈阳 </p>
+        </div>
+        <div class="list" id="listthree">
+            <a href="#listthree">神级位面教师</a><span></span>
+            <p>神级位面教师简介： 作为一名地球出品的位面教师，苏牧风的学生遍布多元宇宙，有战国时代的诸侯，有三十三天外的真仙，有银河母舰的舰长，有魔导帝国的皇帝。 苏牧风的日常工作主要有两项，第一是在地球上悠闲的过日子（顺便走上人生巅峰），第二是在各个位面教育学生们（顺便阻止这群熊孩子毁灭世界）。 ——哦，顺便谈谈恋爱</p>
+        </div>
+    </div>
+</body>
+</html>

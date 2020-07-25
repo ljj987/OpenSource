@@ -1,0 +1,139 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+body{
+    width: 1360px;
+    height: auto;
+    margin: 0 auto;
+    overflow: auto;
+}
+.appber{
+    width:100%;
+    min-width:1280px;
+}
+.appbar .img{
+    width: 100%;
+    height: 100%;
+}
+
+.appbar ul{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.appbar ul li{
+    list-style: none;
+}
+.appbar ul li a{
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    margin: 20px 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #262626;
+    font-weight: bold;
+    transition: .5s;
+}
+.appbar ul li a:hover{
+    color: #fff;
+}
+.appbar ul li a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    transform: scaleY(2);
+    opacity: 0;
+    transition: .5s;
+    z-index: -1;
+}
+.appbar ul li a:hover::before{
+    transform: scaleY(1.1);
+    opacity: 1;
+}
+.appbar ul li a::after{
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    transform: scale(0);
+    transition: .5s;
+    z-index: -1;
+}
+.appbar ul li a:hover::after{
+    transform: scale(1);
+}
+.bgc {
+    position: absolute;
+    width: 50%;
+    height: 80%;
+    top: 40%;
+    left: 25%;
+   
+}
+
+.title {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    top: 400px;
+    margin: auto;
+    bottom: 0;
+    color: #262626;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.titles {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    top: 450px;
+    margin: auto;
+    bottom: 0;
+    color: #262626;
+    font-size: 20px;
+    font-weight: 500;
+}
+.icon {
+    width: 10px;
+    height: 10px;
+    padding: 5px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    background-image: url(../images/2.png);
+    position: absolute;
+    left: 49%;
+    bottom: 50px;
+    animation: downs 2s linear infinite;
+    -webkit-animation: downs 2s linear infinite;
+}
+
+@keyframes downs {
+    from {
+        opacity: .8;
+    }
+    to {
+        opacity: .4;
+    }
+}
+
+

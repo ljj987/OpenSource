@@ -1,0 +1,14 @@
+.appbar ul {
+    width: 100%;
+    margin: 0 95%;
+}
+.bgc{
+    width: 150%;
+    height: 150%;
+    margin: 0 40%;
+}
+.title,.titles {
+    width: 100%;
+    margin: -90px 90%;
+    text-align: center;
+}
