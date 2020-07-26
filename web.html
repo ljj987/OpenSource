@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="./css/taiji1.css">
     <title>我的web案例</title>
     <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
 <body>
-    <div id="appBox">
+        <div id="appBox">
         <div class="box">
             <div class="left">
                 <div class="right"></div>
@@ -20,8 +21,8 @@
             </div>
         </div>
         <img class="img" src="./images/tubiao2.png" alt="">
-    </div>
-    <div id="appBar">
+        </div>
+        <div id="appBar">
         <ul>
             <li><a href="./index.html">首页</a></li>
             <li class="active"><a href="./web.html">web案例</a></li>
@@ -29,16 +30,145 @@
             <li><a href="#">我的文章</a></li>
             <li><a href="./geren.html">关于我</a></li>
             <li id="slide"></li>
-        </ul> 
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('li').on('click', function(){
-                $(this).siblings().removeClass('active');
-                $(this).addClass('active')
+        </ul>
+        <div class="search-box">
+            <input type="text" class="search-txt" placeholder="search">
+            <div class="search-btn">
+                <a href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var text = document.querySelector(".search-txt");
+            var btn = document.querySelector(".search-btn");
+            function search() {
+                var textcontent = text.value;
+                location.href = "https://cn.bing.com/search?q=" + textcontent;
+            }
+            btn.addEventListener("click", search);
+            
+            $(document).ready(function(){
+                $('li').on('click', function(){
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+                })
             })
-        })
-    </script>
+           
+        </script>
+
+        </div>
+       
+    <div class="row">
+        <div class="column left">
+        
+        </div>
+  
+        <div class="column middle">
+        
+       
+        </div>
+  
+        <div class="column right">
+            <div class="cldBody">
+                <table>
+                    <thead>
+                        <tr>
+                            <td colspan="7">
+                                <div class="top">
+                                    <span id="left">&lt;</span>
+                                    <span id="topDate"></span>
+                                    <span id="right">&gt;</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="week" >
+                            <td>日</td>
+                            <td>一</td>
+                            <td>二</td>
+                            <td>三</td>
+                            <td>四</td>
+                            <td>五</td>
+                            <td>六</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody" ></tbody>
+                </table>
+            </div>
+            <script type="text/javascript">
+                //1.添加月份到顶部
+                var date = new Date();
+                var year = date.getFullYear();
+                var nowyear = date.getFullYear();
+                var month = date.getMonth()+1;
+                var nowmonth = date.getMonth()+1;
+                var dateday = date.getDate();
+                var todateHtml = year + '年'+ month + '月';
+                $('#topDate').text(todateHtml)
+                //2.添加日历函数
+                function showcld(){
+                    var monthDay = [31,28,31,30,31,30,31,31,30,31,30,31];  // 创建数组存放每个月有多少天 ,默认2月为28天
+                    // 判断闰年
+                    if(year % 4 == 0 && year %100 != 0 || year % 400 == 0){
+                        monthDay[1] = 29;
+                    }
+                    // 计算每个月的天数
+                    var days = monthDay[month-1];
+                    // 判断每月第一天为周几
+                    date.setYear(year);        //某年
+                    date.setMonth(month-1);   //某年的某月
+                    date.setDate(1);   // 某月的某天
+                    var weekday = date.getDay();  // 判断某天是周几
+                    // 补齐一号前的空格
+                    var tbodyHtml = '<tr>';
+                    for(var i = 0; i<weekday; i++){
+                        tbodyHtml += "<td></td>";
+                    }
+                    // 补齐每月的日期
+                    var changLine = weekday;
+                    var tagClass = '';
+                    for(i=1; i<=days; i++){//每一个日期的填充
+                        if(year == nowyear && month == nowmonth && i == dateday) {
+                                tagClass = "curDate";//当前日期对应格子
+                                    }else{
+                                        tagClass = "isDate";
+                                    }
+                        tbodyHtml += "<td class=" + tagClass + ">" + i + "</td>";
+                        changLine = (changLine+1)%7;
+                        if(changLine == 0 && i != days){//是否换行填充的判断
+                            tbodyHtml += "</tr><tr>";
+                        }
+                        }
+                    $('#tbody').empty();   // 清空原有的内容
+                    $('#tbody').append(tbodyHtml);   //添加当前月份的日期内容
+                    }
+                    // 设置按钮点击事件
+                    $('#left').click(function(){
+                        month = month-1;
+                        if(month < 1){
+                                month = 12;
+                                year--;
+                        }
+                        var todateHtml = year + '年'+ month + '月';
+                        $('#topDate').text(todateHtml);
+                        showcld();
+                    });
+        
+                    $('#right').click(function(){
+                        month = month+1;
+                        if(month > 12){
+                            month = 1;
+                            year++;
+                        }
+                        var todateHtml = year + '年'+ month + '月';
+                        $('#topDate').text(todateHtml);
+                        showcld();
+                    })
+                    showcld();  //页面加载后执行函数
+
+            </script> 
+        </div>
+    </div>
     
 </body>
 </html>

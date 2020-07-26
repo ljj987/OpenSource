@@ -9,7 +9,9 @@ body{
    transform: rotate(-37deg) skewX(10deg);
    position: relative;
    box-shadow: -35px 35px 50px rgba(0, 0, 0, 1);
-   /*阴影*/transition: 0.5s;
+   /*阴影*/
+   transition: 0.5s;
+   margin: 30px;
 }
 
 .bok::before{

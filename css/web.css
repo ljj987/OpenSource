@@ -85,8 +85,107 @@ body{
     left: 600px;
     opacity: 1;
 }
+.search-box{
+    position: absolute;
+    left: 1140px;
+    top: 130px;
+    transform: translate(-50%, -50%);
+    background: #333;
+    max-width: 450px;
+    width: 100%;
+    padding: 5px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.5;
+    float: right;
+}
+.search-box .search-txt{
+    width: 85%;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 30px 0 0 30px;
+    font-weight: bold;
+
+}
+.search-btn{
+    background: #73B001;
+    width: 20%;
+    border-radius: 0 25px 25px 0;
+    position: relative;
+    cursor: pointer;
+}
+.search-btn .fas{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: #fff;
+}
+/* 创建三个不相等的列 */
+.column {
+    float: left;
+    padding: 5px;
+}
+  
+  /* 左右两侧宽度 */
+.column.left{
+    width: 15%;
+    background: #6DBF03;
+    opacity: 0.9;
+    margin: 0 22px;
+    height: auto;
+}
+.column.right {
+    width: 300px;
+    margin: 0 22px;
+    height: auto;
+}
+  /* 中间区域宽度 */
+.column.middle {
+    width: 55%;
+    background: red;
+    height: auto;
+}
+  
+  /* 列后面清除浮动 */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.cldBody{
+    background: #6DBF03;
+    width: 290px;
+    margin: 5px auto;
+    opacity: 0.6;
+}
+.cldBody .top{
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    position: relative;
+}
+#topDate{font-size: 24px;}
+#week td{font-size: 15px;}
+td{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+}
+#tbody td:hover{background: #ededed;cursor: pointer;}
+.curDate{color: red;font-weight: bold;}
+#left,#right{width: 60px;height: 60px;position: absolute;cursor: pointer;}
+#left{left: 0;}
+#right{right: 0;}
+#left:hover, #right:hover{background-color: rgba(250, 243, 243, 0.2);} 
+  
 @media screen and (min-width: 475px) {
-    #appBar ul, #appBox{
+    #appBar ul, #appBox,.search-box{
       width: 1360px;
       height: auto;
     }

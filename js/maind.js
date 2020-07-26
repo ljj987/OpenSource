@@ -1,10 +1,10 @@
 /*
  * @Author: your name
- * @Date: 2020-07-06 15:50:04
- * @LastEditTime: 2020-07-07 14:21:31
- * @LastEditors: Please set LastEditors
+ * @Date: 2020-07-23 17:26:37
+ * @LastEditTime: 2020-07-25 18:22:41
+ * @LastEditors: your name
  * @Description: In User Settings Edit
- * @FilePath: \RongYuan\js\main.js
+ * @FilePath: \OpenSource\js\maind.js
  */ 
 var myChart = echarts.init(document.getElementById('maind'));
 
