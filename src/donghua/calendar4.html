@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html >
+
+<head>    
+
+<meta charset="UTF-8">    
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">   
+
+  <title>日历</title>
+
+<style type="text/css">
+
+.datetab{     width:400px;  height: 400px;     text-align: center;     margin-top: 30px;  margin-left: 350px; }
+
+.datetab ul{     list-style: none; }
+
+.datetab ul li{     width: 100px;  height:100px;     float:left;  color:#fff;     background: #000;     border:#ccc 1px solid; }
+
+#txt{     position: absolute;     margin-top: 408px;  margin-left: 40px;     border:#ccc 1px solid;     height:140px; width: 286px;     height:0 auto;     background: #000;  color:#fff;     padding: 10px; }
+
+</style>   
+
+  <script type="text/javascript">  
+
+   window.onload=function(){              
+
+var aDeta=[            //设置每个月活动数组      
+
+   "一日不见，如隔三秋；思之一念，何谓三年！相思本是无凭语，偏向花笺费泪行！",     
+
+    "忠骨柔肠，尽在离殇。夏夜风，透心凉；寒窗雨，画沧桑！",     
+
+    "离河桥、离河水、离河桥下生离愁！有你，心叠千层浪；无你，梦回万重山！",     
+
+    "如果，岁月是一部剪辑的影集，我愿沐浴在你时光的倩影中，举杯邀明月！",      
+
+   "如果，岁月能够缅怀前进的步伐，我愿沉醉在迟暮黄昏的笑颜，勾勒红晕！",     
+
+    "如果，岁月是一场忘情的邂逅，我愿沉湎眼影的徜徉，不让凄凉填满心房！",     
+
+    "常说：平常心，平常至无心，无心方能成道！然，无独有偶，相思却叛逆而行！",     
+
+    "平生不会相思，才会相思，便害相思！腾云驾雾青冥闹，一记相思云端绕！",      
+
+   "身觉浮云无所著，心如柳絮气若丝！残一缕余香在此，盼卿卿佳人何之！症之来时，正是何时？",    
+
+     "那一夜，灯半昏时，月半明时！心似络纬网，中有千万结！理不清的缠绵悱恻，忘不掉的剑若游痕！",      
+
+   "纷至沓来，北雁南归，锦书一封，怡然自得！凝眸往昔，如烟红尘，离愁别恨思无穷，迢迢春水向东流！",     
+
+    "无情不似多情苦，一寸还成千万缕。天涯地角有穷时，只有相思无尽处。泪也思，不泪也思！",        ];
+
+       var ali=document.getElementsByTagName('li'); //获取单元格li的id    
+
+    　　var otxt=document.getElementById("txt");  //获取放置活动的div      
+
+　　  var i=0;      
+
+       for(i=0;i<ali.length;i++){                 
+
+　　     ali[i].index=i;       //建立索引值      
+
+　　       ali[i].onmouseover=function(){     //给每个月份加鼠标移入事件              
+
+              for(i=0;i<ali.length;i++){             
+
+　　　　    ali[i].style='';          
+
+　　       }             
+
+　　　　    this.style.background="#ccc";            
+
+　　     this.style.color="#015705" ; //设置当鼠标进入时的样式           
+
+　　      otxt.innerHTML="<h3>"+(this.index+1)+"月活动</h3><p>" +aDeta[this.index]+"</p>";  //给div中写入信息         
+
+　　    };  
+
+　　  }   
+
+  }    
+
+</script>
+
+</head>
+
+<body>  
+
+   <div id="tab" class="datetab">     
+
+    <ul>              
+
+       <li><h2>1月</h2><p>JAN</p></li>           
+
+          <li><h2>2月</h2><p>FER</p></li>      
+
+               <li><h2>3月</h2><p>MAR</p></li>          
+
+           <li><h2>4月</h2><p>APR</p></li>           
+
+         <li><h2>5月</h2><p>MAY</p></li>         
+
+            <li><h2>6月</h2><p>JUN</p></li>         
+
+            <li><h2>7月</h2><p>JUL</p></li>              
+
+       <li><h2>8月</h2><p>AUG</p></li>          
+
+           <li><h2>9月</h2><p>SEP</p></li>          
+
+           <li><h2>10月</h2><p>OCT</p></li>        
+
+             <li><h2>11月</h2><p>NOV</p></li>         
+
+            <li><h2>12月</h2><p>DEC</p></li>          
+
+                 
+
+    </ul>      
+
+   <div id="txt">  
+
+       </div>  
+
+   </div>
+
+</body>
+
+</html>

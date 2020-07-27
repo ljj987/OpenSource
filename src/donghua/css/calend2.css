@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+   }
+   /*清除浮动代码*/
+   .clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+   .clearfloat{zoom:1}
+   #calendarElement{
+    margin: 100px auto;
+    width: 30%;
+    box-shadow: 0 0 10px #999999;
+   }
+   #calendarElement>.header{
+    height: 80px;
+    background-color: coral;
+    display: flex;
+    border-bottom: 1px solid #fff;
+   }
+   #calendarElement>.header .prev{
+    width: 20%;
+    position: relative;
+   }
+   #calendarElement>.header .prev i{
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    transform: rotate(45deg);
+    border: 2px solid #fff;
+    border-right: none;
+    border-top: none;
+   }
+   #calendarElement>.header .next{
+    position: relative;
+   }
+   #calendarElement>.header .next i{
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    transform: rotate(45deg);
+    border: 2px solid #fff;
+    border-left: none;
+    border-bottom: none;
+   }
+   #calendarElement>.header .date{
+    width: 60%;
+    font-size: 22px;
+    line-height: 80px;
+    color: #fff;
+    text-align: center;
+   }
+   #calendarElement>.header .next{
+    width: 20%;
+   }
+   #calendarElement>.content >.week{
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    display: flex;
+    padding: 0 1%;
+   }
+   #calendarElement>.content >.week >div{
+    width: 14%;
+    text-align: center;
+    line-height: 40px;
+   }
+   #calendarElement>.content >.weekMany{
+    padding-top: 5px;
+    padding-bottom: 15px;
+   }
+   #calendarElement>.content >.weekMany>div{
+    float: left;
+    width: 14.28%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+   }
+   #calendarElement>.content >.weekMany>.otherMonth{
+    color: #999999
+   }
