@@ -244,6 +244,16 @@ body{
 #calendarElement>.content >.weekMany>.otherMonth{
  color: #999999
 }
+#linkweb{
+    width: 320px;
+    height: 30px;
+    margin: 0 -23px;
+    text-align: center;
+    text-align-last: center;
+    box-shadow: 0 0 10px #999999;
+    opacity: 0.8;
+    font-size: 20px;
+}
 .inBox {
     width: 763px;
     height: 512px;

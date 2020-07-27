@@ -236,6 +236,8 @@
                  </div>
                 </div>
             </div>
+            <div id="linkweb">
+            </div>
             <script type="text/javascript">
                 var currentTime="";   //当前时间年月日
                 var dom=document.querySelector("#calendarElement");       //承载元素
@@ -388,6 +390,7 @@
                 document.querySelector(".header").style.backgroundColor=color;
                 document.querySelector(".week").style.backgroundColor=color;
                 }
+                setInterval("linkweb.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
             </script>   
         </div>
     </div>
