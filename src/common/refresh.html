@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <html lang="zh">
+    <head>
+    <meta charset="UTF-8">
+    <title>用js实现每隔一秒刷新时间(含年月日时分秒)</title>
+    <style>
+    #time{background:#333;
+         color:white;
+         height:30px;
+         line-height:30px;
+         padding:20px;
+         font-size:18px;
+         width:400px;
+         text-align:center;
+         margin:0 auto;
+         margin-top:200px;}
+    </style>
+</head>
+<body>
+        <div id="time"></div>
+        <script type="text/javascript"> 
+         setInterval(function(){
+              var time=new Date();
+              var year=time.getFullYear();  //获取年份
+              var month=time.getMonth()+1;  //获取月份
+              var day=time.getDate();   //获取日期
+              var hour=checkTime(time.getHours());   //获取时
+              var minite=checkTime(time.getMinutes());  //获取分
+              var second=checkTime(time.getSeconds());  //获取秒
+              /****当时、分、秒、小于10时，则添加0****/
+              function checkTime(i){
+                  if(i<10) return "0"+i;
+                  return i;
+              }
+              var box=document.getElementById("time");
+              box.innerHTML=year+"年"+month+"月"+day+"日  "+hour+":"+minite+":"+second;		  
+            },1000);     //setInterval(fn,i) 定时器，每隔i秒执行fn
+    </script>
+</body>
+</html>
+
+    

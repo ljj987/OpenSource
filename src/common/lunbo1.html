@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>轮播图1</title>
+<script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+<style type="text/css">
+	#box{
+		width:300px;
+		height:400px;
+		border:1px solid black;
+		position:relative;
+        overflow:hidden;
+	}
+	#red{
+        width:300px;
+        background-image: url(./img/0.jpg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+	}
+	#green{
+        width:300px;
+        height: 100%;
+        background-image: url(./img/1.jpg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+	}
+	#blue{
+		
+        width:300px;
+        background-image: url(./img/2.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+	}
+	.slide{
+		width:100%;
+		height:100%;
+		position:absolute;
+	}
+</style>
+
+</head>
+<body>
+	<div id="box" onmouseover="stop()" onmouseout="start()">
+		<div id="red" class="slide"></div>
+		<div id="green" class="slide"></div>
+		<div id="blue" class="slide"></div>
+    </div>
+    <script type="text/javascript">
+        onload=function(){
+            var arr = document.getElementsByClassName("slide");
+            for(var i=0;i<arr.length;i++){
+                arr[i].style.left = i*300+"px";
+            }
+        }
+        function LeftMove(){
+            var arr = document.getElementsByClassName("slide");//获取三个子div
+            for(var i=0;i<arr.length;i++){
+                var left = parseFloat(arr[i].style.left);
+                left-=2;
+                var width = 300;//图片的宽度
+                if(left<=-width){
+                    left=(arr.length-1)*width;//当图片完全走出显示框，拼接到末尾
+                    clearInterval(moveId);
+                }
+                arr[i].style.left = left+"px";
+            }
+        }
+        function divInterval(){
+            moveId=setInterval(LeftMove,10);//设置一个10毫秒定时器
+        }
+        
+        
+        timeId=setInterval(divInterval,2000);//设置一个3秒的定时器。
+        
+        function stop(){
+            clearInterval(timeId);
+        }
+        function start(){
+            clearInterval(timeId);
+            timeId=setInterval(divInterval,2000);
+        }
+        
+        //页面失去焦点停止
+        onblur = function(){
+            stop();
+        }
+        //页面获取焦点时开始
+        onfocus = function(){
+            start();
+        }
+    </script>
+</body>
+</html>

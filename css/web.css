@@ -131,7 +131,7 @@ body{
   
   /* 左右两侧宽度 */
 .column.left{
-    width: 15%;
+    width: 13%;
     background: #6DBF03;
     opacity: 0.9;
     margin: 0 22px;
@@ -144,9 +144,10 @@ body{
 }
   /* 中间区域宽度 */
 .column.middle {
-    width: 55%;
-    background: red;
+    width: 57%;
     height: auto;
+    background: #f9f9f9;
+    opacity: 1;
 }
   
   /* 列后面清除浮动 */
@@ -179,11 +180,97 @@ td{
 }
 #tbody td:hover{background: #ededed;cursor: pointer;}
 .curDate{color: red;font-weight: bold;}
-#left,#right{width: 60px;height: 60px;position: absolute;cursor: pointer;}
-#left{left: 0;}
-#right{right: 0;}
-#left:hover, #right:hover{background-color: rgba(250, 243, 243, 0.2);} 
-  
+#left1,#right1{width: 60px;height: 60px;position: absolute;cursor: pointer;}
+#left1{left: 0;}
+#right1{right: 0;}
+#left1:hover, #right1:hover{background-color: rgba(250, 243, 243, 0.2);} 
+#time{
+    background:#489E03;
+    color:white;
+    height:30px;
+    line-height:30px;
+    padding: 30px;
+    font-size: 18px;
+    width: 290px;
+    text-align: center;
+    margin: 0 auto;
+    opacity: 0.5;  
+}
+.inBox {
+    width: 763px;
+    height: 512px;
+    border: 2px solid #ccc;
+    margin: 0 auto;
+    padding: 5px;
+    opacity: 1;
+}
+.inner{
+    width: 750px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+.inner img{
+    width: 750px;
+    height: 500px;
+    vertical-align: top;
+}
+.inner ul {
+    width: 1000%;
+    position: absolute;
+    list-style: none;
+    left:0;
+    top: 0;
+}
+.inner li{
+    float: left;
+}
+
+.inner ol {
+    position: absolute;
+    height: 20px;
+    right: 20px;
+    bottom: 20px;
+    text-align: center;
+    padding: 5px;
+}
+.inner ol li{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background-color: #fff;
+    margin: 5px;
+    cursor: pointer;
+}
+.inner ol .current{
+    background-color: #f8f8f8;
+}
+#arr{
+    display: none;
+}
+#arr span{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    margin-top: -10px;
+    background: #fff;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-family: '黑体';
+    font-size: 30px;
+    color: #000;
+    opacity: 0.5;
+    border: 1px solid #fff;
+}
+#arr #right {
+    right: 5px;
+    left: auto;
+}
 @media screen and (min-width: 475px) {
     #appBar ul, #appBox,.search-box{
       width: 1360px;

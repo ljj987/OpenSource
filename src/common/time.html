@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时钟实例</title>
+    <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<div id="clock"></div>
+<script>
+    $(document).ready(function(){
+        $(window).load(function(){
+            getTime();
+        })
+        function getTime(){
+            var today=new Date();
+            var h=today.getHours();
+            var m=today.getMinutes();
+            var s=today.getSeconds();
+            m=checkTime(m);
+            s=checkTime(s);
+            $("#clock").text(h+":"+m+":"+s);
+            setTimeout(function(){
+                getTime();
+            },1000);
+        }
+        function checkTime(i){
+            if(i<10){
+                i="0"+i;
+            }
+            return i;
+        }
+    });
+</script>
+</body>
+</html>
+

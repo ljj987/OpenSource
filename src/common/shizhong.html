@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>时钟</title>
+    <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+	<style type="text/css">
+		.clock_box{
+			width:300px;
+			height:300px;
+			border:5px solid #000;
+			border-radius: 50%;
+			position: relative;
+		}
+		.clock_dial{
+			font-size: 18px;
+			width:100%;
+			height: 100%;
+			position: relative;
+			-moz-transform-origin:center center;
+			-webkit-transform-origin:center center;
+			-o-transform-origin:center center;
+			transform-origin: center center;
+			text-align: center;
+ 
+		}
+		.dial{
+			position: absolute;
+			width:20px;
+			height: 100%;
+			top:0;
+			left:140px;
+ 
+		}
+		.dial span{
+			width:3px;
+			height:18px;
+			background:black;
+			display: inline-block;
+			vertical-align: top;
+		}
+		.dial b{
+			display:inline-block;
+		}
+		.H,.M,.S{
+			position:absolute;
+			height: 100%;
+			top:0;
+            left: 50%;
+            transform: matrix3d();
+			-webkit-transform:translate3d(-50%,0,0);
+			-ms-transform:translate3d(-50%,0,0);
+			-o-transform:translate3d(-50%,0,0);
+			text-align: center;
+		}
+		.H span{
+			margin-top: 80px;
+			width:6px;
+			height: 80px;
+			background:black;
+			display:inline-block;
+		}
+		.M span{
+			margin-top: 60px;
+			height: 100px;
+			width:6px;
+			background:black;
+			display:inline-block;			
+		}
+		.S span{
+			margin-top: 45px;
+			height: 120px;
+			width:3px;
+			background:red;
+			display: inline-block;
+			position:relative;
+		}
+		.S span:after{
+			content:'';
+			width:10px;
+			height: 10px;
+			border-radius: 50%;
+			background:red;
+			position: absolute;
+			bottom:10px;
+			left:-3.5px;
+ 
+		}
+	</style>
+</head>
+<body>
+	<div class="clock_box">
+		<div class="clock_dial">
+			<div class="dial"><span></span><br><b>12</b></div>
+			<div class="dial"><span></span><br><div>1</div></div>
+			<div class="dial"><span></span><br><div>2</div></div>
+			<div class="dial"><span></span><br><b>3</b></div>
+			<div class="dial"><span></span><br><div>4</div></div>
+			<div class="dial"><span></span><br><div>5</div></div>
+			<div class="dial"><span></span><br><b>6</b></div>
+			<div class="dial"><span></span><br><div>7</div></div>
+			<div class="dial"><span></span><br><div>8</div></div>
+			<div class="dial"><span></span><br><b>9</b></div>
+			<div class="dial"><span></span><br><div>10</div></div>
+			<div class="dial"><span></span><br><div>11</div></div>
+		</div>
+		<div class="H"><span></span></div>
+		<div class="M"><span></span></div>
+		<div class="S"><span></span></div>
+	</div>
+ 
+	<script type="text/javascript">
+		var clock_box=document.querySelector('.clock_box'),
+			clock_dial=document.querySelector('.clock_dial'),
+			dial=document.querySelectorAll('.dial');
+		var H_clock=document.querySelector('.H'),
+			M_clock=document.querySelector('.M'),
+			S_clock=document.querySelector('.S');
+ 
+			console.log(dial[0].lastChild)
+ 
+			//1 制作表盘
+			 for(var i=0;i<dial.length;i++){
+			 	var angle=360/12*i;
+			 	dial[i].style.transform='rotate('+angle+'deg)';
+			 	dial[i].lastChild.style.transform='rotate('+-angle+'deg)';
+			 	
+			}
+			//2 获得当地时间，用计时器实现动画效果
+			function clockMove(){
+				var nowTime=new Date();
+				var H=nowTime.getHours();
+				var M=nowTime.getMinutes();
+				var S=nowTime.getSeconds();
+				//1s是6度，1m是6度，1h是30度；
+				S_clock.style.transform='rotate('+S*6+'deg)';
+				H_clock.style.transform='rotate('+(H*30+30/60*M)+'deg)';
+				M_clock.style.transform='rotate('+M*6+'deg)';
+ 
+ 
+			}
+			var timer=setInterval(function(){
+				clockMove();
+			},1000)
+ 
+ 
+	</script>
+</body>
+</html>

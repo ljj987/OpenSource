@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>饼图</title>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+<body>
+    <div id="box" style="width: 800px;height:600px;"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById("box"));
+        myChart.setOption({
+            series : [
+                {
+                    name: '来源',
+                    type: 'pie',
+                    radius: '50%',
+                    data:[
+                        {value:23, name:'A'},
+                        {value:63, name:'B'},
+                        {value:33, name:'C'},
+                        {value:53, name:'G'},
+                        {value:13, name:'P'},
+                        {value:43, name:'O'}
+                    ]
+                }
+            ]
+        })
+    </script> 
+</body>
+</html>
