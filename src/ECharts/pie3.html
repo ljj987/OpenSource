@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>饼图3</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+ 
+        myChart.setOption({
+            series : [
+                {
+                    name: '来源',
+                    type: 'pie',    // 设置图表类型为饼图
+                    radius: '50%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+        // 高亮样式。
+        emphasis: {
+            itemStyle: {
+                // 高亮时点的颜色
+                color: 'green'
+            },
+            label: {
+                show: true,
+                // 高亮时标签的文字
+                formatter: '高亮时显示的标签内容'
+            }
+        },
+					data:[          // 数据数组，name 为数据项名称，value 为数据项值
+                        {value:25, name:'A'},
+                        {value:24, name:'S'},
+                        {value:31, name:'D'},
+                        {value:35, name:'F'},
+                        {value:60, name:'G'}
+                    ]
+                }
+            ]
+        })
+    </script>
+</body>
+</html>
