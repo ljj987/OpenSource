@@ -61,10 +61,96 @@
         </div>
        
     <div class="row">
+          
         <div class="column left">
-        
+            <div class="right2">
+                <ul>
+                    <li>
+                        <span>第一栏</span>
+                        <div class="div2">
+                            <h1>第一栏</h1>
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <span>第二栏</span>
+                        <div class="div2">
+                            <h1>第二栏</h1>
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <span>第三栏</span>
+                        <div class="div2">
+                            <h1>第三栏</h1>
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <span>第四栏</span>
+                        <div class="div2">
+                            <h1>第四栏</h1>
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <span>第五栏</span>
+                        <div class="div2">
+                            <h1>第五栏</h1>
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <span>第六栏</span>
+                        <div class="div2">
+                            <h1>第六栏</h1>
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <span>第七栏</span>
+                        <div class="div2">
+                            <h1>第七栏</h1>
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <span>第八栏</span>
+                        <div class="div2">
+                            <h1>第八栏</h1>
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <span>第九栏</span>
+                        <div class="div2">
+                            <h1>第九栏</h1>
+                            
+                        </div>
+                    </li>
+                </ul>
+            </div>
+       
+        <script type="text/javascript">
+            //鼠标移入区域时
+            $('.column.left .right2 ul li').mouseenter(function(){
+                $(this).css({'background':'#000'});
+                $(this).find('div').css({'background':'#3f3f3f'}).show();//显示div
+                $('.div2').not($(this).find('div')).hide();
+                $('.column.left .right2 ul li').not($(this)).css({'background':'#3f3f3f'}); 
+                $(this).parents(".column.left").siblings(".column.middle").find(".inner").hide();  
+                
+            });
+            //鼠标移除区域时
+            $('.column.left .right2 ul li').mouseleave(function(){
+                $(this).find('div').hide();//隐藏div
+                $(this).css({'background':'#3f3f3f'});
+                $(this).parents(".column.left").siblings(".column.middle").find(".inner").show();
+            });
+            
+        </script>
         </div>
-  
+
         <div class="column middle">
             <div class="inBox" id="inBox">
                 <div class="inner">
@@ -82,12 +168,12 @@
                     </ol>
                     <!--左右焦点-->
                     <div id="arr">
-                                <span id="left">《</span>
-                        <span id="right">》</span>
+                        <span id="left1">《</span>
+                        <span id="right1">》</span>
                     </div>
                 </div>
             </div>
-            <script>
+           <script>
                 /**
                  *
                  * @param id  传入元素的id
@@ -105,7 +191,7 @@
                 var olObj=inner.children[1];
                 var arr=my$("arr");
                 var imgWidth=inner.offsetWidth;
-                var right=my$("right");
+                var right=my$("right1");
                 var pic=0;
                 //根据li个数，创建小按钮
                 for(var i=0;i<list.length;i++){
@@ -153,7 +239,7 @@
                     if (pic == list.length - 1) {
                         //如何从第6个图,跳转到第一个图
                         pic = 0;//先设置pic=0
-                        ulObj.style.left = 0 + "px";//把ul的位置还原成开始的默认位置
+                        ulObj.style.left1 = 0 + "px";//把ul的位置还原成开始的默认位置
                     }
                     pic++;//立刻设置pic加1,那么此时用户就会看到第二个图片了
                     animate(ulObj, -pic * imgWidth);//pic从0的值加1之后,pic的值是1,然后ul移动出去一个图片
@@ -171,10 +257,10 @@
                         olObj.children[pic].className = "current";
                     }
                 }
-                left.onclick=function () {
+                left1.onclick=function () {
                     if (pic==0){
                         pic=list.length-1;
-                        ulObj.style.left=-pic*imgWidth+"px";
+                        ulObj.style.left1=-pic*imgWidth+"px";
                     }
                     pic--;
                     animate(ulObj,-pic*imgWidth);
@@ -210,7 +296,7 @@
             </script>
        
         </div>
-  
+
         <div class="column right">
             <div id="calendarElement">
                 <div class="header">
@@ -393,6 +479,7 @@
                 setInterval("linkweb.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
             </script>   
         </div>
+
     </div>
     
 </body>

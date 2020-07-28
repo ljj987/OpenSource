@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>下拉导航栏</title>
+<style>
+*{
+	padding:0;
+	margin:0;
+}
+.menu{ width:750px; margin:50px auto;}
+.menu ul {
+list-style: none;
+}
+.menu ul li {
+float:left;
+position:relative;
+}
+.menu ul li a, .menu ul li a:visited {
+display:block;
+text-align:center;
+text-decoration:none;
+width:104px;
+height:30px;
+color:#000;
+border:1px solid #fff;
+border-width:1px 1px 0 0;
+background:#c9c9a7;
+line-height:30px;
+font-size:18px;
+}
+.menu ul li ul {
+display: none;
+}
+.menu ul li:hover a {
+color:#fff;
+background:#b3ab79;
+}
+.menu ul li:hover ul {
+display:block;
+position:absolute;
+top:31px;
+left:0;
+width:105px;
+}
+.menu ul li:hover ul li a {
+display:block;
+background:#faeec7;
+color:#000;
+}
+.menu ul li:hover ul li a:hover {
+background:#dfc184;
+color:#000;
+}
+</style>
+</head>
+ 
+<body>
+<div class="menu" >
+<ul>
+<li><a href="#">AAAAAA</a>
+<ul>
+<li><a href="#" >AAA</a></li>
+<li><a href="#" >AAA</a></li>
+<li><a href="#">AA</a></li>
+</ul>
+</li>
+<li><a href="#">BBBBBBB</a>
+<ul>
+<li><a href="#" >BBBBB</a></li>
+<li><a href="#" >BBBB</a></li>
+<li><a href="#" >BBB</a></li>
+</ul>
+</li>
+<li><a href="#">EEEEEEE</a>
+<ul>
+<li><a href="#" >EEEEE</a></li>
+<li><a href="#" >EEEE</a></li>
+<li><a href="#" >EEE</a></li>
+<li><a href="#" >EE</a></li>
+</ul>
+</li>
+<li><a href="#">FFFFFFF</a>
+<ul>
+<li><a href="#" >FFFF</a></li>
+<li><a href="#" >FFF</a></li>
+<li><a href="#" >FF</a></li>
+</ul>
+</li>
+<li><a href="#">GGGGGGG</a>
+<ul>
+<li><a href="#" >GGGGG</a></li>
+<li><a href="#" >GGGG</a></li>
+<li><a href="#" >GGG</a></li>
+</ul>
+</li>
+<li><a href="#">HHHHHHHH</a>
+<ul>
+<li><a href="#" >HHHHH</a></li>
+<li><a href="#" >HHHH</a></li>
+</ul>
+</li>
+<li><a href="#">KKKKKKK</a>
+<ul>
+<li><a href="#" >LLLLL</a></li>
+<li><a href="#" >YYYY</a></li>
+</ul>
+</li>
+</ul>
+<div class="clear"> </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+ <head lang="en">
+  <meta charset="UTF-8">
+  <title>仿京东左侧菜单</title>
+  <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+  <style>
+      *{padding:0;margin:0;}
+a{text-decoration:none;}
+.nav-box{
+ width:210px;
+ margin:5px 0 0 5px;
+}
+.nav-top a{
+ display:block;
+ height:45px;
+ font-size:16px;
+ line-height:45px;
+ padding:0 10px;
+ background:#B1191A;
+ color:#fff;
+}
+ul{background:#c81623;list-style:none;padding-bottom:1px;}
+ul li{
+ height:30px;
+ line-height:30px;
+ font-size:14px;
+ color:#fff;
+ position:relative;
+ padding-left: 5px;
+}
+.orange{background-color: orange;}
+ul li a{color:#fff;}
+ul li div{display:none; position: absolute; left: 211px; top:0px;}
+  </style>
+ </head>
+ <body>
+ <div class="nav-box">
+  <div class="nav-top"><a href="">全部商品分类</a></div>
+  <ul>
+   <li>
+    <a href="">家用电器</a><div><img src="img/b.png"/></div>
+   </li>
+   <li>
+    <a href="">手机</a>、<a href="">数码</a>、<a href="">京东通信</a><div><img src="img/d.png"/></div>
+   </li>
+   <li>
+    <a href="">电脑</a>、<a href="">办公</a><div><img src="img/f.png"/></div>
+   </li>
+   <li>
+    <a href="">家居</a>、<a href="">家具</a>、<a href="">家装</a>、<a href="">厨具</a><div><img src="img/g.jpg"/></div>
+   </li>
+   <li>
+    <a href="">男装</a>、<a href="">女装</a>、<a href="">珠宝</a><div><img src="img/h.jpg"/></div>
+   </li>
+  </ul>
+ </div>
+   <script type="text/javascript">
+        $(document).ready(function(){
+            $("li").hover(function(){
+                $(this).children("div").show();
+                $(this).toggleClass("orange");
+            },
+            function(){
+                $(this).children("div").hide();
+                $(this).toggleClass("orange");
+                }
+            );
+        });
+</script>
+ </body>
+</html>

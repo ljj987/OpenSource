@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+         padding: 0;
+         margin: 0;
+         border: 0;
+        }
+       body{
+      
+        height: 2000px;
+      
+       }
+       .right_ng{
+        width: 40px;
+        height: 100%;
+        position: absolute;
+        position: fixed;
+        right: 0px;
+        background: #666666;
+      
+      
+       }
+       .sign{
+        width: 40px;
+        height: 40px; 
+        margin-top:280%;
+       }
+       .sign_top{
+        margin-top: 10px;
+       }
+       .sign_add_height{
+        height: 140px;
+        background: #888888;
+        color: #ffffff;
+        font-size: 13px;
+        list-style: none;
+        font-weight: bold;
+       }
+       .sign_add_height ul{
+        margin-top: 6px;
+        cursor: pointer;
+       }
+       .sign_add_height ul li{
+        list-style-type: none;
+        width: 20px;
+        height: 20px;
+        margin-top: 5px;
+       }
+       .buy{
+        width: 20px;
+        height: 20px;
+        border-radius: 10px 10px;
+        background:#666;
+       }
+       .sign_QR{
+        margin-top: 200%;
+        position: absolute;
+        bottom: 50px;
+        position: fixed;
+        background: #666666;
+       }
+       .sign_end{
+       position: absolute;
+       bottom: 0px;
+       position: fixed;
+       background: #666666;
+       }
+       .sign img{
+        width: 22px;
+        height: 22px;
+        margin-top: 10px;
+        cursor: pointer;
+       }
+       .run_sign{
+        width: 100px;
+        height: 40px;
+        margin-left: -100px;
+        margin-top: -35px;
+        background: #666666;
+        color: #1afa29;
+        font-size: 13px;
+        line-height: 40px;
+         cursor: pointer;
+       }
+       .run_QR{
+        height: 250px;
+        width: 200px;
+        margin-left: -200px;
+        margin-top: -245px;
+       }
+       .sign_float{
+        position: fixed;
+       }
+      
+       </style>
+      
+</head>
+<body>
+    <div class="right_ng">
+        <div class="sign">
+         <center>
+         <img src="img/1.png" />
+         </center>  
+        <div class="run_sign">
+         <center>
+         <span><b>我的订单</b></span>
+         </center>
+        </div>
+       </div> 
+       
+       <div class="sign sign_top">
+         <center>
+         <img src="img/2.png" />
+         </center>  
+        <div class="run_sign">
+         <center>
+         <span><b>我的收藏</b></span>
+         </center>
+        </div>
+       </div> 
+         <div class="sign sign_top">
+         <center>
+          <img src="img/3.png" />
+         </center>  
+         <div class="run_sign">
+          <center>
+           <span><b>我的优惠券</b></span>
+          </center>
+          </div>
+         </div> 
+         <div class="sign sign_top">
+         <center>
+          <img src="img/4.png" />
+         </center>  
+          <div class="run_sign">
+           <center>
+           <span><b>我的足迹</b></span>
+           </center>
+           </div>
+         </div> 
+           <div class="sign sign_top">
+         <center>
+          <img src="img/5.png" />
+         </center>  
+          <div class="run_sign">
+           <center>
+            <span><b>我的JImu</b></span>
+            </center>
+           </div>
+          </div>
+       
+        <div class="sign sign_top sign_add_height">
+         <center>
+          <img src="img/6.png" />
+          <ul>
+           <li>购</li>
+           <li>物</li>
+           <li>车</li>
+           <li class="buy">0</li>
+          </ul>
+         </center>       
+       </div> 
+        <div class="sign sign_top sign_QR">
+         <center>
+          <img class="img_1" src="img/7.png" />
+         </center>  
+         <div class="run_sign run_QR">
+          <center>
+         <img class="img_2" src="img/17.png" style="width: 160px;height: 170px;">
+         <br />微信扫码享优惠
+          </center>
+         </div>
+         </div>
+       
+        <div class="sign sign_top sign_end">
+         <center>
+          <img src="img/8.png" />
+         </center>  
+        <div class="run_sign">
+          <center>
+           <span><b>加关注</b></span>
+          </center>
+         </div>
+       </div>       
+       </div>
+       <script>    
+        $(function(){
+         $('.run_sign').css('display','none');
+         $(".run_QR img").attr("src","img/17.png");   
+          for(var i=0;i<8;i++){
+           if(i==6){
+           $('.sign').eq(i).hover(function(){   $(this).css('background','#ea68a2').find('.img_1').attr("src","img/15.png");
+               $(this).find('.run_sign').css('visibility','visible').stop().slideDown(200);},function(){
+               $(this).css('background','#666666').find('.img_1').attr("src","img/7.png");
+               $(this).find('.run_sign').css('visibility','visible').stop().slideUp(200);})}
+           else if(i==5){
+           $('.sign').eq(i).hover(function(){      $(this).css('background','#ea68a2').find('img').attr("src","img/14.png");},function(){
+               $(this).css('background','#888888').find('img').attr("src","img/6.png");})}
+           else{      $('.sign').eq(i).hover(function(){
+          var b=$(this).index();
+                $(this).css('background','#ea68a2').find('img').attr("src","img/"+(b+9)+".png");
+                $(this).find('.run_sign').css('visibility','visible').stop().slideDown(200);},function(){
+          var b=$(this).index();
+                $(this).css('background','#666666').find('img').attr("src","img/"+(b+1)+".png");
+                $(this).find('.run_sign').css('visibility','visible').stop().slideUp(200);})}}
+        });
+       </script>
+</body>
+</html>
+
